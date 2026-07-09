@@ -1,0 +1,19 @@
+steps:
+- name: mcr.microsoft.com/playwright:v1.61.0-noble
+  entrypoint: bash
+  args:
+    - "-c"
+    - |
+      npm install
+      npx playwright install --with-deps
+      npx playwright test
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+artifacts:
+  objects:
+    location: gs://<enter_your_bucket_name_here>/playwright-report
+    paths:
+      - playwright-report/**
+      - test-results/**
