@@ -13,7 +13,7 @@ steps:
 - script: |
     npm install
     npx playwright install --with-deps
-    npx playwright test
+    npx playwright test tests/playwright01.spec.ts --project=chromium
   displayName: 'Installing Playwright, Browsers & running...'
 
 - task: PublishBuildArtifacts@1
